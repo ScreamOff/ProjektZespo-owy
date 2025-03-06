@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/upload.css') }}">
+</head>
+    <h2>Upload</h2>
+    <div class="container">
+        <form action="{{ url_for('uploader_blueprint.file_uploader') }}" method="post" enctype="multipart/form-data">
+            <div id="drop-area" class="drop-area">
+                Drop here
+            </div>
+            <label for="file-input" id="upload-label">Wybierz pliki</label>
+            <input type="file" id="file-input" name="file" multiple required>
+            <button id="submit-button" type="submit">Prześlij</button>
+            <div id="file-name"></div>
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+            {% if success %}
+                <p class="success">{{ success }}</p>
+            {% endif %}
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+
+{% endblock %}

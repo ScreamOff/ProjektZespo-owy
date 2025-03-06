@@ -10,6 +10,7 @@ ICON_FOLDER = 'static/icons'
 EXTENSION_ICON_MAP = {
     'pdf': 'pdf_icon.svg',
     'doc': 'doc_icon.svg',
+    'odt': 'doc_icon.svg',
     'docx': 'doc_icon.svg',
     'jpg': 'image_icon.svg',
     'jpeg': 'image_icon.svg',
