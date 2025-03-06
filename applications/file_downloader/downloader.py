@@ -4,7 +4,7 @@ import os
 downloader_blueprint = Blueprint('downloader', __name__,template_folder='templates')
 
 UPLOAD_FOLDER = 'static/uploads/'
-ICON_FOLDER = 'static/asd/'
+ICON_FOLDER = 'static/icons'
 
 # Mapowanie rozszerzeń plików na odpowiednie ikony SVG
 EXTENSION_ICON_MAP = {
