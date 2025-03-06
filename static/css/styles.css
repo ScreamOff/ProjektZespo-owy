@@ -1,0 +1,102 @@
+:root {
+    --primary-bg-color: #2d2d2d;
+    --text-color: LightSteelBlue;
+    --highlight-color: #6c7b8b; /* Darker shade of LightSteelBlue */
+    --background-color: rgba(45, 45, 45, 1);
+    --container-background: rgba(105, 105, 105, 0.2); /* Light gray with opacity */
+    --button-background: #4f4f4f; /* Dark gray */
+    --button-text-color: LightSteelBlue;
+    --error-color: #ff4c4c; /* Light Coral */
+    --success-color: #4caf50; /* Green */
+    --secondary-bg-color: #333;
+    --button-hover-color: #6c7b8b;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--primary-bg-color);
+}
+
+header {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    padding: 1rem;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.app-grid {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.app-item {
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+    background-color: inherit;
+    border: 2px solid var(--highlight-color);
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.app-item:hover {
+    background-color: inherit;
+    transform: scale(1.05);
+}
+
+.app-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.app-item span {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.app-item a {
+    text-decoration: none;
+}
+
+.home-link {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 2px solid var(--highlight-color);
+    border-radius: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: var(--secondary-bg-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.home-link:hover {
+    background-color: var(--highlight-color);
+    color: var(--primary-bg-color);
+}
+
+
+.error, .success {
+    color: var(--text-color);
+    font-weight: bold;
+}

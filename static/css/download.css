@@ -1,0 +1,93 @@
+:root {
+    --primary-bg-color: #2d2d2d;
+    --text-color: LightSteelBlue;
+    --highlight-color: #6c7b8b; /* Darker shade of LightSteelBlue */
+    --background-color: rgba(45, 45, 45, 1);
+    --container-background: rgba(105, 105, 105, 0.2); /* Light gray with opacity */
+    --button-background: #4f4f4f; /* Dark gray */
+    --button-text-color: LightSteelBlue;
+    --error-color: #ff4c4c; /* Light Coral */
+    --success-color: #4caf50; /* Green */
+    --secondary-bg-color: #333;
+    --button-hover-color: #6c7b8b;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+h2 {
+    background-color: var(--container-background);
+    max-width: 600px;
+    padding: 20px;
+    color: var(--text-color);
+    margin: 0 auto 15px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--highlight-color);
+}
+.container {
+    padding: 20px;
+    max-width: 600px; /* Zapewnia, że kontener ma określoną maksymalną szerokość */
+    margin: 0 auto;
+    background-color: var(--container-background);
+    border: 1px solid var(--highlight-color);
+    border-radius: 8px;
+    overflow: hidden; /* Zapobiega wychodzeniu elementów poza kontener */
+}
+
+.download-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid var(--highlight-color);
+    border-radius: 10px;
+    background-color: var(--container-background);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.download-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    flex-shrink: 0;
+    filter: invert(85%);
+}
+
+.download-info {
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--text-color);
+}
+
+.download-button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex-shrink: 0;
+}
+
+.download-button:hover {
+    background-color: var(--button-hover-color);
+}

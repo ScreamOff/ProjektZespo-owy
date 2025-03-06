@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="app-grid">
+    {% for app in applications %}
+    <div class="app-item">
+        <a href="{{ app.url }}">
+            <img src="{{ url_for('static', filename='icons/' + app.icon) }}" alt="{{ app.name }} Ikona">
+            <span>{{ app.name }}</span>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
