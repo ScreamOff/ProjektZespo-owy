@@ -3,7 +3,7 @@ from applications.file_downloader.downloader import downloader_blueprint
 from applications.file_uploader.uploader import uploader_blueprint
 
 
-app = Flask(__name__)
+app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
 

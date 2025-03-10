@@ -1,0 +1,144 @@
+:root {
+    --text-color: LightSteelBlue;
+    --highlight-color: #6c7b8b; /* Darker shade of LightSteelBlue */
+    --background-color: rgba(45, 45, 45, 1);
+    --container-background: rgba(105, 105, 105, 0.2); /* Light gray with opacity */
+    --button-background: #4f4f4f; /* Dark gray */
+    --button-text-color: LightSteelBlue;
+    --error-color: #ff4c4c; /* Light Coral */
+    --success-color: #4caf50; /* Green */
+    --secondary-bg-color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    padding: 1rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    padding: 1rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--container-background);
+    border: 1px solid var(--highlight-color);
+    border-radius: 8px;
+}
+
+h2 {
+    background-color: var(--container-background);
+    max-width: 600px;
+    padding: 20px;
+    color: var(--text-color);
+    margin: 0 auto 15px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--highlight-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type="file"] {
+    border: none; /* Ukrycie standardowego obramowania inputa */
+    border-radius: 8px;
+    background-color: var(--background-color);
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    cursor: pointer;
+}
+
+button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+}
+
+label {
+    background-color: var(--button-background);
+    border: 1px solid var(--highlight-color);
+    border-radius: 6px;
+    padding: 15px 25px; /* Zwiększone wewnętrzne odstępy */
+    font-size: 18px; /* Większy rozmiar czcionki */
+    display: inline-block; /* Aby padding działał poprawnie */
+    cursor: pointer;
+    margin: 10px; /* Dodanie marginesu, jeśli potrzebne */
+}
+
+.drop-area {
+    border: 2px dashed var(--highlight-color);
+    padding: 50px;
+    border-radius: 8px;
+    background-color: var(--background-color); /* Jasnoszare tło dla lepszej widoczności */
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    transition: border-color 0.3s, background-color 0.3s; /* Płynna zmiana koloru obramowania i tła */
+    text-align: center; /* Wyrównanie tekstu na środku */
+}
+
+.drop-area p {
+    margin: 0;
+    font-size: 16px;
+    color: var(--text-color); /* Kolor tekstu zgodny z kolorami aplikacji */
+}
+
+.drop-area.dragover {
+    border-color: var(--button-background); /* Przyciemnione obramowanie */
+    background-color: rgba(45, 45, 45, 0.8); ; /* Lekko przezroczyste tło przy przeciąganiu */
+}
+
+#file-name {
+    font-size: 14px;
+    color: var(--text-color);
+    margin-top: 10px;
+    font-style: italic; /* Styl czcionki dla lepszej widoczności */
+}
+#file-input {
+    display: none;
+}
+
+
+.error {
+    color: var(--error-color);
+    margin-top: 10px;
+}
+
+.success {
+    color: var(--success-color);
+    margin-top: 10px;
+}
