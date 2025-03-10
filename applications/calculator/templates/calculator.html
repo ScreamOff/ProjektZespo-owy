@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="calculator-container">
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/calculator.css') }}">
+    </head>
+    <h2>Kalkulator Naukowy</h2>
+    <div class="calculator-display">
+        <input type="text" id="expression" readonly>
+    </div>
+    <div class="calculator-buttons">
+        <!-- Basic Operations -->
+        <button onclick="addCharacter('7')">7</button>
+        <button onclick="addCharacter('8')">8</button>
+        <button onclick="addCharacter('9')">9</button>
+        <button onclick="addCharacter('/')">/</button>
+
+        <button onclick="addCharacter('4')">4</button>
+        <button onclick="addCharacter('5')">5</button>
+        <button onclick="addCharacter('6')">6</button>
+        <button onclick="addCharacter('*')">*</button>
+
+        <button onclick="addCharacter('1')">1</button>
+        <button onclick="addCharacter('2')">2</button>
+        <button onclick="addCharacter('3')">3</button>
+        <button onclick="addCharacter('-')">-</button>
+
+        <button onclick="addCharacter('0')">0</button>
+        <button onclick="addCharacter('.')">.</button>
+        <button onclick="addCharacter('+')">+</button>
+        <button onclick="clearExpression()">C</button>
+
+        <button onclick="addCharacter('(')">(</button>
+        <button onclick="addCharacter(')')">)</button>
+        <button onclick="calculateResult()" class="equal-button">=</button>
+
+        <!-- Scientific Operations -->
+        <button onclick="addCharacter('Math.sin(')">sin</button>
+        <button onclick="addCharacter('Math.cos(')">cos</button>
+        <button onclick="addCharacter('Math.tan(')">tan</button>
+        <button onclick="addCharacter('Math.sqrt(')">√</button>
+        <button onclick="addCharacter('Math.log10(')">log</button>
+        <button onclick="addCharacter('Math.log(')">ln</button>
+        <button onclick="addCharacter('Math.pow(')">^</button>
+
+        <!-- Inverse Functions -->
+        <button onclick="addCharacter('Math.asin(')">asin</button>
+        <button onclick="addCharacter('Math.acos(')">acos</button>
+        <button onclick="addCharacter('Math.atan(')">atan</button>
+
+        <!-- Answer Button -->
+        <button onclick="useLastResult()">ANS</button>
+    </div>
+    <div class="result" id="result"></div>
+</div>
+<script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+{% endblock %}

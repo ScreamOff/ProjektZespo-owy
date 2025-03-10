@@ -1,0 +1,74 @@
+:root {
+    --text-color: LightSteelBlue;
+    --highlight-color: #6c7b8b; /* Darker shade of LightSteelBlue */
+    --background-color: rgba(45, 45, 45, 1);
+    --container-background: rgba(105, 105, 105, 0.2); /* Light gray with opacity */
+    --button-background: #4f4f4f; /* Dark gray */
+    --button-text-color: LightSteelBlue;
+    --error-color: #ff4c4c; /* Light Coral */
+    --success-color: #4caf50; /* Green */
+    --secondary-bg-color: #333;
+}
+
+.calculator-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--container-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.calculator-display {
+    margin-bottom: 20px;
+}
+
+#expression {
+    width: 100%;
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    text-align: right;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    padding: 15px;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--highlight-color);
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: var(--success-color);
+}
+
+.error {
+    color: var(--error-color);
+}
