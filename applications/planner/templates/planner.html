@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/planner.css') }}">
+</head>
+
+<h2>Planer Wydarzeń</h2>
+
+<!-- Formularz dodawania wydarzenia -->
+    <div class="container">
+<form action="{{ url_for('planner.show_planner') }}" method="POST">
+    <input type="text" name="title" placeholder="Nazwa wydarzenia" required>
+    <input type="date" name="date" required>
+    <button type="submit">Dodaj wydarzenie</button>
+</form>
+    </div>
+
+<!-- Lista nadchodzących wydarzeń -->
+<ul class="events-list">
+    {% for event in events %}
+    <li>
+        <span>{{ event.title }} - {{ event.date }}</span>
+        <form action="{{ url_for('planner.delete_event', event_id=loop.index0) }}" method="POST" style="display:inline;">
+            <button type="submit" class="delete-button">Usuń</button>
+        </form>
+    </li>
+    {% else %}
+    <li>Brak nadchodzących wydarzeń.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

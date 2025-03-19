@@ -4,6 +4,7 @@ from applications.file_uploader.uploader import uploader_blueprint
 from applications.calculator.calculator import calculator_blueprint
 from applications.video_player.player import player_blueprint
 from applications.notes.notes import notes_blueprint
+from applications.planner.planner import planner_blueprint
 
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
@@ -16,7 +17,7 @@ app.register_blueprint(uploader_blueprint, url_prefix='/uploader')
 app.register_blueprint(calculator_blueprint, url_prefix='/calculator')
 app.register_blueprint(player_blueprint, url_prefix='/player')
 app.register_blueprint(notes_blueprint, url_prefix='/notes')
-
+app.register_blueprint(planner_blueprint, url_prefix='/planner')
 @app.route('/')
 def index():
     applications = [
@@ -25,6 +26,7 @@ def index():
         {'name': 'Calculator', 'icon': 'calculator_icon.png', 'url': url_for('calculator.calculator')},
         {'name': 'Video Player', 'icon': 'play_button.png', 'url': url_for('player.video_list')},
         {'name': 'Notes', 'icon': 'notes_icon.png', 'url': url_for('notes.notes')},
+        {'name': 'Planner', 'icon': 'planner_icon.png', 'url': url_for('planner.show_planner')},
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)

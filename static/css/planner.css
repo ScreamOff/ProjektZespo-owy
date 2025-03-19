@@ -1,0 +1,78 @@
+h2 {
+    background-color: var(--container-background);
+    max-width: 600px;
+    padding: 20px;
+    color: var(--text-color);
+    margin: 0 auto 15px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid var(--highlight-color);
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+input[type="text"], input[type="date"] {
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: 2px solid var(--highlight-color);
+    background-color: var(--container-background);
+    color: var(--text-color);
+}
+.container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto 15px;
+    background-color: var(--container-background);
+    border: 1px solid var(--highlight-color);
+    border-radius: 8px;
+}
+button[type="submit"] {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--button-hover-color);
+}
+
+.events-list {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.events-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid var(--highlight-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: var(--container-background);
+    color: var(--text-color);
+}
+
+.delete-button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--error-color);
+    color: var(--primary-bg-color);
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
