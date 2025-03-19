@@ -1,0 +1,186 @@
+:root {
+    --text-color: LightSteelBlue;
+    --highlight-color: #6c7b8b; /* Darker shade of LightSteelBlue */
+    --background-color: rgba(45, 45, 45, 1);
+    --container-background: rgba(105, 105, 105, 0.2); /* Light gray with opacity */
+    --button-background: #4f4f4f; /* Dark gray */
+    --button-text-color: LightSteelBlue;
+    --error-color: #ff4c4c; /* Light Coral */
+    --success-color: #4caf50; /* Green */
+    --secondary-bg-color: #333;
+    --button-hover-color: #6c7b8b;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Usuń poziomy pasek przewijania */
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.notes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start; /* Dostosuj do góry ekranu */
+    padding: 20px;
+    background-color: var(--container-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.create-note,
+.notes-list {
+    width: 48%; /* Dopasowanie szerokości dla obu kontenerów */
+    max-width: 100%; /* Maksymalna szerokość nie może przekraczać 100% */
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-sizing: border-box; /* Wliczanie paddingu w szerokość */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Odstęp między kontenerami */
+}
+
+h2 {
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+}
+
+textarea {
+    resize: vertical; /* Pozwala na zmianę wysokości */
+}
+
+button {
+    padding: 10px 20px;
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 100%; /* Przycisk zajmuje całą szerokość kontenera */
+}
+
+button:hover {
+    background-color: var(--button-hover-color); /* Użyj dynamicznie ustawionego koloru */
+}
+
+/* Stylizacja notatek */
+.note-list-container {
+    overflow-y: auto; /* Pionowy pasek przewijania */
+    max-height: 80vh; /* Maksymalna wysokość kontenera z listą notatek */
+    margin-top: 20px;
+}
+
+.note {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    position: relative;
+    overflow: hidden;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    padding-right: 30px; /* Odstęp dla krzyżyka usuwającego */
+}
+
+.note:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.note-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    opacity: 1; /* Ustawienie mniejszej alfy dla tytułów */
+    display: flex;
+    justify-content: space-between; /* Pozycjonowanie krzyżyka na końcu */
+    align-items: center; /* Wyrównanie w pionie */
+}
+
+.note-content {
+    display: none;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 1; /* Większa alfa dla zawartości */
+}
+
+.delete-note {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: var(--error-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+     /* Odstęp od tytułu */
+}
+
+.delete-note:hover {
+    opacity: 1;
+}
+
+.color-palette {
+    display: flex;
+    flex-wrap: wrap; /* Zwijanie kolorów, jeśli za dużo */
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.color-option {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+}
+
+.color-option.selected {
+    border: 2px solid var(--highlight-color);
+    box-sizing: border-box; /* Wliczanie obramowania */
+}
+.spacer {
+    margin-left: 100px;
+}
+
+@media (max-width: 768px) {
+    .create-note,
+    .notes-list {
+        width: 100%; /* Ustawienie szerokości 100% dla mniejszych ekranów */
+    }
+
+    .notes-container {
+        flex-direction: column; /* Ułożenie kontenerów w kolumnie */
+    }
+}

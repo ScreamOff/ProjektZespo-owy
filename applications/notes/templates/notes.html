@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/notes.css') }}">
+<script src="{{ url_for('static', filename='js/notes.js') }}"></script>
+<div class="notes-container">
+    <div class="create-note">
+        <h2>Utwórz Nową Notatkę</h2>
+        <form action="{{ url_for('notes.add_note') }}" method="POST">
+            <div class="form-group">
+                <label for="title">Tytuł:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="content">Zawartość:</label>
+                <textarea id="content" name="content" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="color">Kolor:</label>
+                <div class="color-palette">
+                    {% for color in colors %}
+                    <div class="color-option" style="background-color: {{ color }}" onclick="selectColor('{{ color }}')"></div>
+                    {% endfor %}
+                </div>
+                <input type="hidden" id="color" name="color" value="#FFEB3B">
+            </div>
+            <button type="submit" id="add-note-button">Dodaj Notatkę</button>
+        </form>
+    </div>
+    <div class="notes-list">
+        <h2>Twoje Notatki</h2>
+        <div class="note-list-container">
+            {% for note in notes %}
+            <div class="note" style="background-color: {{ note.color }}" onclick="toggleContent({{ loop.index0 }})">
+                <h3 class="note-title" id="title-{{ loop.index0 }}">{{ note.title }}
+                    <div class="spacer"></div>
+                    <button class="delete-note" onclick="event.stopPropagation(); deleteNote({{ loop.index0 }});">✖</button>
+
+                </h3>
+                <div class="note-content" id="content-{{ loop.index0 }}">
+                    <p>{{ note.content }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
