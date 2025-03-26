@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/audio_player.css') }}">
+</head>
+
+<div class="audio-container">
+    <h2>Odtwarzacz MP3</h2>
+
+    <h3 id="nowPlaying">Wybierz utwór</h3>
+
+    <audio id="audioPlayer" controls>
+        <source id="audioSource" src="" type="audio/mpeg">
+        Twoja przeglądarka nie obsługuje odtwarzacza audio.
+    </audio>
+
+    <!-- Ukryty gif na start -->
+    <img id="audioGif" src="{{ url_for('static', filename='img/pause_img.jpg') }}" alt="Odtwarzanie" style="display: none;">
+
+    <ul class="audio-list">
+        {% for audio in audios %}
+            <li>
+                <a href="{{ url_for('audio_player.play_audio', filename=audio) }}">{{ audio }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script src="{{ url_for('static', filename='js/audio_player.js') }}"></script>
+{% endblock %}
