@@ -19,6 +19,8 @@ EXTENSION_ICON_MAP = {
     'zip': 'zip_icon.svg',
     'rar': 'zip_icon.svg',
     'txt': 'txt_icon.svg',
+    'mp3': 'mp3_icon_file.svg',
+    'mp4': 'mp4_icon_file.svg',
     # Można dodać więcej typów plików według potrzeb
 }
 
