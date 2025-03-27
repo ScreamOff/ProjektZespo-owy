@@ -6,6 +6,7 @@ from applications.video_player.player import player_blueprint
 from applications.notes.notes import notes_blueprint
 from applications.planner.planner import planner_blueprint
 from applications.audio_player.audio_player import audio_player_blueprint
+from applications.gallery.gallery import gallery_blueprint
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
@@ -13,12 +14,12 @@ app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
 # Rejestracja blueprintów
 app.register_blueprint(downloader_blueprint, url_prefix='/downloader')
 app.register_blueprint(uploader_blueprint, url_prefix='/uploader')
-
 app.register_blueprint(calculator_blueprint, url_prefix='/calculator')
 app.register_blueprint(player_blueprint, url_prefix='/player')
 app.register_blueprint(notes_blueprint, url_prefix='/notes')
 app.register_blueprint(planner_blueprint, url_prefix='/planner')
 app.register_blueprint(audio_player_blueprint, url_prefix='/audio_player')
+app.register_blueprint(gallery_blueprint, url_prefix='/gallery')
 @app.route('/')
 def index():
     applications = [
@@ -28,7 +29,9 @@ def index():
         {'name': 'Video Player', 'icon': 'play_button.png', 'url': url_for('player.video_list')},
         {'name': 'Planner', 'icon': 'planner_icon.png', 'url': url_for('planner.show_planner')},
         {'name': 'Notes', 'icon': 'note_icon.png', 'url': url_for('notes.notes')},
-        {'name': 'Audio Player', 'icon': 'mp3_icon.png', 'url': url_for('audio_player.audio_list')}
+        {'name': 'Audio Player', 'icon': 'mp3_icon.png', 'url': url_for('audio_player.audio_list')},
+        {'name': 'Gallery', 'icon': 'gallery.png', 'url': url_for('gallery.gallery')}
+
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)

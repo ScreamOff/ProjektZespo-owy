@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/gallery.css') }}">
+</head>
+<div class="gallery-container">
+    <h2>Galeria Zdjęć</h2>
+    <div class="image-grid">
+        {% for image in images %}
+            <div class="image-item">
+                <img src="{{ url_for('gallery.get_image', filename=image) }}" alt="Zdjęcie: {{ image }}" class="thumbnail">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+    <span class="close">&times;</span>
+    <div class="lightbox-content">
+        <img id="lightbox-img">
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/gallery.js') }}"></script>
+{% endblock %}
