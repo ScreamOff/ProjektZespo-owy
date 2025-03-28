@@ -1,0 +1,41 @@
+.timer-container {
+    text-align: center;
+    padding: 20px;
+}
+
+input {
+    width: 60px;
+    padding: 5px;
+    margin: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.buttons {
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+#countdown {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+h2{
+    color: var(--text-color);
+}
+p{
+    color: var(--text-color);
+}

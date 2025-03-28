@@ -7,6 +7,7 @@ from applications.notes.notes import notes_blueprint
 from applications.planner.planner import planner_blueprint
 from applications.audio_player.audio_player import audio_player_blueprint
 from applications.gallery.gallery import gallery_blueprint
+from applications.timer.timer import timer_blueprint
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
@@ -20,6 +21,7 @@ app.register_blueprint(notes_blueprint, url_prefix='/notes')
 app.register_blueprint(planner_blueprint, url_prefix='/planner')
 app.register_blueprint(audio_player_blueprint, url_prefix='/audio_player')
 app.register_blueprint(gallery_blueprint, url_prefix='/gallery')
+app.register_blueprint(timer_blueprint, url_prefix='/timer')
 @app.route('/')
 def index():
     applications = [
@@ -30,7 +32,8 @@ def index():
         {'name': 'Planner', 'icon': 'planner_icon.png', 'url': url_for('planner.show_planner')},
         {'name': 'Notes', 'icon': 'note_icon.png', 'url': url_for('notes.notes')},
         {'name': 'Audio Player', 'icon': 'mp3_icon.png', 'url': url_for('audio_player.audio_list')},
-        {'name': 'Gallery', 'icon': 'gallery.png', 'url': url_for('gallery.gallery')}
+        {'name': 'Gallery', 'icon': 'gallery.png', 'url': url_for('gallery.gallery')},
+        {'name': 'Timer', 'icon': 'timer_icon.png', 'url': url_for('timer.timer_page')}
 
         # Możemy tutaj dodawać kolejne aplikacje
     ]
