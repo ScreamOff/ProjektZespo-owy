@@ -17,6 +17,7 @@
     </div>
     <div class="controls">
         <button id="start-pause" onclick="toggleTimer()">▶</button>
+        <button id="reset" onclick="resetTimer()">↻</button>
     </div>
     <audio id="alarm-sound" src="{{ url_for('static', filename='audio/alarm.mp3') }}"></audio>
 </div>
