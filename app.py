@@ -17,11 +17,13 @@ app.register_blueprint(downloader_blueprint, url_prefix='/downloader')
 app.register_blueprint(uploader_blueprint, url_prefix='/uploader')
 app.register_blueprint(calculator_blueprint, url_prefix='/calculator')
 app.register_blueprint(player_blueprint, url_prefix='/player')
+###Ten sprint
 app.register_blueprint(notes_blueprint, url_prefix='/notes')
 app.register_blueprint(planner_blueprint, url_prefix='/planner')
 app.register_blueprint(audio_player_blueprint, url_prefix='/audio_player')
 app.register_blueprint(gallery_blueprint, url_prefix='/gallery')
 app.register_blueprint(timer_blueprint, url_prefix='/timer')
+###Następne
 @app.route('/')
 def index():
     applications = [
