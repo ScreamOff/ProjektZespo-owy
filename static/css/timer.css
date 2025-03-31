@@ -45,3 +45,37 @@ h2{
 p{
     color: var(--text-color);
 }
+#timer-display {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+#timer-display-container{
+    margin: 20px auto;
+    text-align: center;
+    padding: 10px;
+
+    background-color: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.time-buttons button {
+    border-radius: 25px;
+    border-color: var(--text-color);
+    color: var(--text-color);
+    background-color: var(--button-background);
+    margin: 5px;
+    padding: 10px;
+    font-size: 1rem;
+
+}
+
+.controls button {
+    margin-top: 20px;
+    border-radius: 15px;
+    border-color: var(--text-color);
+    color: var(--text-color);
+    background-color: var(--button-background);
+}
