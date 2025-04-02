@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quote.css') }}">
+</head>
+
+<div class="quote-container">
+    <h2 id="quoteDate">Cytat dnia</h2>
+    <div class="quote-box" id="quoteBox">
+        <p class="quote-text" id="quoteText"></p>
+    </div>
+    <button id="newQuoteBtn">Losuj nowy cytat</button>
+</div>
+
+<script src="{{ url_for('static', filename='js/quote_page.js') }}"></script>
+{% endblock %}
