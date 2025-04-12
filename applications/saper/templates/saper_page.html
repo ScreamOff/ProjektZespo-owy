@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/saper.css') }}">
+</head>
+
+<div class="minesweeper-container">
+    <div class="board-section">
+        <h2>🧨 Saper</h2>
+        <div>
+            <button id="easyButton">Easy</button>
+            <button id="mediumButton">Medium</button>
+            <button id="hardButton">Hard</button>
+            <button id="resetButton">Reset</button>
+        </div>
+        <p>⏱️ Time: <span id="timer">0</span> sec</p>
+        <div id="board" class="board"></div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/saper.js') }}"></script>
+{% endblock %}
