@@ -2,75 +2,94 @@
     --primary-bg-color: #2d2d2d;
     --text-color: LightSteelBlue;
     --highlight-color: #6c7b8b;
+    --background-color: rgba(45, 45, 45, 1);
     --container-background: rgba(105, 105, 105, 0.2);
-    --input-bg: #444;
-    --button-bg: #4f4f4f;
-    --button-hover: #6c7b8b;
-    --result-bg: rgba(255, 255, 255, 0.05);
+    --button-background: #4f4f4f;
+    --button-text-color: LightSteelBlue;
+    --secondary-bg-color: #333;
+    --button-hover-color: #6c7b8b;
 }
 
 body {
+    background-color: var(--primary-bg-color);
     color: var(--text-color);
 }
 
-.converter-box {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem;
+.converter-container {
+    padding: 30px;
+    max-width: 800px;
+    margin: auto;
     background-color: var(--container-background);
     border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    margin-top: 100px;
 }
 
-.converter-box h2 {
+h1 {
     text-align: center;
+    margin-bottom: 30px;
     color: var(--text-color);
 }
 
-label {
-    display: block;
-    margin-top: 1rem;
-    font-weight: bold;
+.unit-category-selector {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
 }
 
-input, select {
-    width: 100%;
-    padding: 0.5rem;
-    margin-top: 0.3rem;
+.category-button {
+    background-color: var(--button-background);
+    color: var(--button-text-color);
+    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-}
-
-button {
-    width: 100%;
-    margin-top: 1.5rem;
-    padding: 0.7rem;
-    background-color: var(--button-bg);
-    color: var(--text-color);
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--button-hover);
-}
-
-.result-box {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: var(--result-bg);
     border-radius: 10px;
-    text-align: center;
-    font-size: 18px;
-    color: var(--text-color);
-    font-weight: bold;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
 }
 
-h2{
-    text-align: center;
+.category-button:hover,
+.category-button.active {
+    background-color: var(--button-hover-color);
+}
+
+.converter-panel {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.input-section,
+.output-section {
+    flex: 1 1 300px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="number"],
+input[readonly],
+select {
+    padding: 10px;
+    font-size: 18px;
+    width: 100%;
+    max-width: 250px;
+    border-radius: 8px;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--highlight-color);
+}
+
+.equals {
+    font-size: 36px;
+    color: var(--highlight-color);
+}
+
+#output-unit-label {
+    font-size: 16px;
+    color: var(--highlight-color);
 }
