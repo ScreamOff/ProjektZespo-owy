@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/weather.css') }}">
+</head>
+
+<div class="weather-container">
+
+    <div class="city-input-box">
+        <input id="cityInput" type="text" placeholder="Wpisz miasto..." />
+        <button onclick="getWeatherByCity()">Pokaż pogodę</button>
+    </div>
+
+    <h2>Stacja Pogodowa</h2>
+    <p id="location" style="margin-bottom: 10px;"></p>
+    <div id="datetime"></div>
+    <div id="weatherInfo">
+        <p>Temperatura: <span id="temp"></span></p>
+        <p>Wilgotność: <span id="humidity"></span></p>
+        <p>Ciśnienie: <span id="pressure"></span></p>
+        <p>Wiatr: <span id="wind"></span></p>
+        <p>Widoczność: <span id="visibility"></span></p>
+        <p>Wschód słońca: <span id="sunrise"></span></p>
+        <p>Zachód słońca: <span id="sunset"></span></p>
+        <p>Imieniny:</p>
+        <p id="nameDay" class="nameday-line"></p>
+        <p><img id="weatherIcon" src="" alt="ikona pogody" style="display:none; margin-top: 10px;"></p>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/weather_page.js') }}"></script>
+{% endblock %}

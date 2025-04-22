@@ -11,7 +11,7 @@ from applications.timer.timer import timer_blueprint
 from applications.quote.quote import quote_blueprint
 from applications.saper.saper import saper_blueprint
 from applications.converter.converter import converter_blueprint
-
+from applications.weather.weather import weather_blueprint
 
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
@@ -32,6 +32,7 @@ app.register_blueprint(timer_blueprint, url_prefix='/timer')
 app.register_blueprint(quote_blueprint, url_prefix='/quote_page')
 app.register_blueprint(saper_blueprint, url_prefix='/saper')
 app.register_blueprint(converter_blueprint, url_prefix='/converter')
+app.register_blueprint(weather_blueprint, url_prefix='/weather')
 
 @app.route('/')
 def index():
@@ -48,6 +49,7 @@ def index():
         {'name': 'Quote', 'icon': 'quote_icon.png', 'url': url_for('quote.quote_page')},
         {'name': 'Saper', 'icon': 'saper_icon.png', 'url': url_for('saper.saper_page')},
         {'name': 'Converter', 'icon': 'converter.png', 'url': url_for('converter.converter')},
+        {'name': 'Weather Stat.', 'icon': 'weather_icon.png', 'url': url_for('weather.weather_page')},
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)

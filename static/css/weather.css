@@ -1,0 +1,33 @@
+.weather-container {
+    margin: 50px auto;
+    max-width: 600px;
+    background-color: #222;
+    color: #eee;
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+#weatherInfo p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+}
+
+.city-input-box button {
+    padding: 6px 12px;
+    margin-left: 8px;
+    background-color: #444444;
+    border: none;
+    border-radius: 6px;
+    color: #eee;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.city-input-box button:hover {
+    background-color: LightSteelBlue;
+}
