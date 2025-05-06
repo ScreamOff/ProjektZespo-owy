@@ -12,7 +12,7 @@ from applications.quote.quote import quote_blueprint
 from applications.saper.saper import saper_blueprint
 from applications.converter.converter import converter_blueprint
 from applications.weather.weather import weather_blueprint
-from applications.password_generator.routes import password_generator_bp
+from applications.password_generator.password_generator import password_generator_bp
 
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
