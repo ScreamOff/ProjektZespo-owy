@@ -53,6 +53,8 @@ footer {
     border: 2px solid var(--highlight-color);
     border-radius: 10px;
     transition: background-color 0.3s, transform 0.3s;
+    width: 110px;
+    height: 150px;
 }
 
 .app-item:hover {

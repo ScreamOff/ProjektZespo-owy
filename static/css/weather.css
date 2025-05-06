@@ -1,8 +1,8 @@
 .weather-container {
     margin: 50px auto;
     max-width: 600px;
-    background-color: #222;
-    color: #eee;
+    background-color: var(--secondary-bg-color);
+    color: var(--text-color);
     padding: 30px;
     border-radius: 12px;
     text-align: center;
@@ -21,7 +21,7 @@
     background-color: #444444;
     border: none;
     border-radius: 6px;
-    color: #eee;
+    color: var(--text-color);
     font-weight: bold;
     font-size: 1rem;
     cursor: pointer;
@@ -29,5 +29,5 @@
 }
 
 .city-input-box button:hover {
-    background-color: LightSteelBlue;
+    background-color: var(--highlight-color);
 }
