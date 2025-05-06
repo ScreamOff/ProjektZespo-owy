@@ -1,0 +1,288 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.1rem;
+
+}
+
+.paper {
+  background-image: url(./images/blur-bg.png);
+    transform: scale(0.9);
+}
+
+.points {
+  color: #001193;
+}
+
+h3 {
+  margin: 5px;
+}
+
+img, span, button {
+  cursor: pointer;
+}
+
+.game__choice,
+.game__choice * {
+  cursor: help;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.game {
+  height: 100%;
+  width: 100%;
+  max-width: 640px;
+  margin: auto;
+}
+.game__score-pad {
+  height: 80vh;
+  width: 95%;
+  text-align: center;
+  margin: auto;
+}
+.game__dice {
+  display: flex;
+  justify-content: space-around;
+  width: 95%;
+  margin: 15px auto;
+}
+.game__score-pad td, .game__score-pad th {
+  border-bottom: 1px solid #8080808b;
+}
+.game__dice img {
+  height: 50px;
+}
+.game__score-pad span {
+  height: 12px;
+  width: 12px;
+  border: 1px solid #8080808b;
+  border-radius: 4px;
+  display: inline-block;
+  position: relative;
+}
+.game__empty {
+  border: none;
+  padding: 5px;
+}
+.game__empty:first-of-type {
+  border-right: none;
+  border-left: none;
+}
+.game__top {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.game button {
+  width: 85px;
+  height: 35px;
+  background-size: 100%;
+  border: none;
+}
+.game__again {
+  background-image: url(./images/play-again.png);
+}
+.game__roll {
+  background-image: url(./images/roll-dice.png);
+}
+.game__score-pad .instruction {
+  height: 100%;
+  width: 100%;
+  border: none;
+  display: inline;
+  font-size: 0.9rem;
+  color: #001193;
+}
+
+td {
+  border-right: 1px solid #8080808b;
+  padding: 1px;
+}
+td:first-child {
+  width: 10%;
+  border-right: 1px solid #ff00006b;
+  border-left: 1px solid #8080808b;
+}
+
+input {
+  display: none;
+}
+
+[type=checkbox]:checked + span:before {
+  content: "✔";
+  position: absolute;
+  font-size: 1.2rem;
+  color: #001193;
+  top: -7px;
+  left: 0;
+}
+
+.locked {
+  opacity: 0.6;
+  border: 3px solid #001193;
+  border-radius: 12px;
+}
+
+.crossed-out {
+  text-decoration: line-through #001193 2px;
+  text-decoration-line: line-through;
+  text-decoration-color: #001193;
+  text-decoration-thickness: 2px;
+}
+
+.shaking {
+  animation: tilt-shaking 0.15s;
+}
+
+@keyframes tilt-shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(8deg);
+  }
+  30% {
+    transform: rotate(0deg);
+  }
+  45% {
+    transform: rotate(-8deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.start {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100vh;
+  max-height: 1080px;
+  width: 100vw;
+  max-width: 640px;
+  margin: auto;
+}
+.start__background {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  cursor: default;
+}
+.start__button {
+  position: absolute;
+  top: 60%;
+  left: 32%;
+  width: 40%;
+}
+.start__how {
+  position: absolute;
+  top: 75%;
+  left: 32%;
+  width: 40%;
+}
+
+.how-to-play {
+  background-image: url(./images/bg-how.png);
+  height: 100%;
+  text-align: center;
+  padding: 10%;
+  position: relative;
+  max-width: 640px;
+  margin: auto;
+}
+.how-to-play h2 {
+  padding: 10px;
+  font-size: 2.2rem;
+  color: #ff0000;
+}
+.how-to-play p {
+  margin: 10px;
+  font-size: 1.3rem;
+}
+.how-to-play__ok {
+  margin: 20px;
+  width: 50%;
+}
+
+.pop-up-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.pop-up {
+  background-image: url(./images/popup-bg.png);
+  position: absolute;
+  top: -350px;
+  width: 50%;
+  max-width: 320px;
+  max-height: 250px;
+  left: 15%;
+  text-align: center;
+  padding: 8%;
+  animation: drop 0.5s ease forwards;
+}
+.pop-up__ok {
+  padding: 20px;
+  width: 50%;
+}
+
+@keyframes drop {
+  80% {
+    transform: translateY(600px);
+  }
+  100% {
+    transform: translateY(550px);
+  }
+}
+@media screen and (min-width: 500px) and (min-height: 900px) {
+  body {
+    font-size: 1.6rem;
+  }
+
+  h3 {
+    font-size: 1.7rem;
+  }
+
+  .game__dices img {
+    height: 60px;
+  }
+  .game__top {
+    height: 7vh;
+  }
+  .game button {
+    width: 113px;
+    height: 47px;
+  }
+  .game__score-pad .instruction {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (orientation: landscape) {
+  .start__button {
+    top: 75%;
+    left: 25%;
+    width: 20%;
+  }
+
+  .start__how {
+    top: 75%;
+    left: 55%;
+    width: 20%;
+  }
+}

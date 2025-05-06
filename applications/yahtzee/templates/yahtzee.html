@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/yahtzee.css') }}">
+</head>
+<div class="paper">
+
+    <div class="start">
+        <img src="{{ url_for('static' , filename='css/images/yahtzee.png')}}" alt="background" class="start__background">
+        <img src="{{ url_for('static' , filename='css/images/Start.png')}}" alt="start button" class="start__button">
+        <img src="{{ url_for('static' , filename='css/images/how-to-play.png')}}" alt="how to play" class="start__how">
+
+    </div>
+
+    <div class="how-to-play hidden">
+        <h2>Objective</h2>
+        <p>Yahtzee consists of thirteen rounds. Each player gets a turn per round. On your turn roll your dice and score the roll on the corresponding round, i.e.
+            on round 5 score your dice in the “Game #5” column on the score card. The objective of the game is to collect as many points as possible through dice
+            combinations rolled. In multiplayer, the player with the greatest total points at the end of the game is the winner.
+        </p>
+        <h2>How to Play Yahtzee</h2>
+        <p> Each turn gives a player 3 opportunities to roll the dice in order to score the  highest number of points from dice combinations.
+            After 3 rolls, mark your score or a zero on your score card in the corresponding column.
+            You may stop after the first roll if you are satisfied with the outcome.
+        </p>
+        <p> First Roll: Roll all five dice. Either you may stop your turn here and mark your points or set aside dice which are "keepers" and roll again.</p>
+        <p>Second Roll: You may roll any or all of the dice from the first roll. You need not declare which combination you are attempting to roll for
+            as it may change after the second roll. After the second roll you may stop and score yourself or roll again.
+        </p>
+        <p>Third Roll: Again, you may roll any or all of the five dice. After this roll you must score yourself or mark a zero. After marking your score, your turn is over, and play moves left.</p>
+        <h2>Scoring</h2>
+        <p>For detailed scoring information -> <a href="http://yahtzee-rules.com/">CLICK HERE</a> (no Second Yahtzee Bonus Rules or Yahtzee Joker).<p>
+        <p>For general idea or as a reminder on how to score - click on the name of the choice.</p>
+        <img src="{{ url_for('static' , filename='css/images/ok.png')}}" alt="ok button" class="how-to-play__ok">
+    </div>
+
+    <div class="game hidden">
+        <div class="pop-up-container">
+            <div class="pop-up">
+                <h1 class="pop-up__score">Your score was 83</h1>
+                <img src="{{ url_for('static' , filename='css/images/ok.png')}}" alt="ok" class="pop-up__ok">
+            </div>
+        </div>
+
+        <section class="game__top">
+            <button class="game__roll"> </button>
+            <h3 class="game__rolls-left">Rolls left: 3</h3>
+            <button class="game__again"> </button>
+        </section>
+
+        <div class="game__dice">
+            <img src="" alt="dice1">
+            <img src="" alt="dice2">
+            <img src="" alt="dice3">
+            <img src="" alt="dice4">
+            <img src="" alt="dice5">
+        </div>
+
+        <div class="game__table-container">
+            <table class="game__score-pad">
+                <tr>
+                  <th>Check</th>
+                  <th>Choice</th>
+                  <th>Score</th>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="aces">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Aces <span class="instruction hidden">(count and add only aces)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="twos">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Twos <span class="instruction hidden">(count and add only twos)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="threes">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Threes <span class="instruction hidden">(count and add only threes)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="fours">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Fours <span class="instruction hidden">(count and add only fours)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="fives">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Fives <span class="instruction hidden">(count and add only fives)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="sixes">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Sixes <span class="instruction hidden">(count and add only sixes)</span></td>
+                    <td class="upper-section-points points"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Total</td>
+                    <td class="upper-section-total points"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="game__choice">Bonus <span class="instruction hidden">(35 points if total >= 63)</span></td>
+                    <td class="upper-section-bonus points"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td class="game__choice">Total Score <span class="instruction hidden">(total of upper section)</span></td>
+                    <td class="upper-section total-score-upper points"></td>
+                </tr>
+
+                <tr>
+                    <td class="game__empty"></td>
+                    <td class="game__empty"></td>
+                    <td class="game__empty"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="threeAKind">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">3 of a kind <span class="instruction hidden">(add total of all dice)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="fourAKind">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">4 of a kind <span class="instruction hidden">(add total of all dice)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="fullHouse">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Full House <span class="instruction hidden">(25 points if 3 and 2 of a kind)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="smStraight">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Small Straight <span class="instruction hidden">(30 points if sequence of 4)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="lgStraight">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Large Straight <span class="instruction hidden">(40 points if sequence of 5)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="yahtzee">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">YAHTZEE <span class="instruction hidden">(50 points if 5 of a kind)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td><label><input type='checkbox' class="check" value="chance">
+                        <span></span>
+                    </label></td>
+                    <td class="game__choice">Chance <span class="instruction hidden">(total of 5 dice)</span></td>
+                    <td class="lower-section-points points"></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td class="game__choice">Total <span class="instruction hidden">(total of lower section)</span></td>
+                    <td class="lower-section-total points"></td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td>Grand Total</td>
+                    <td class="grand-score points"></td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/yahtzee.js') }}"></script>
+{% endblock %}{% block footer_extra %}
+    Autor: https://github.com/DorBia/yahtzee-js
+{% endblock %}
