@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/memory.css') }}">
+</head>
+
+<div class="memory-container">
+    <h2>Gra Memory</h2>
+
+    <div class="game-settings">
+        <label for="difficulty">Poziom trudności:</label>
+        <select id="difficulty">
+            <option value="4">Łatwy</option>
+            <option value="6" selected>Średni</option>
+            <option value="8">Trudny</option>
+        </select>
+        <button onclick="startGame()">Start</button>
+    </div>
+
+    <div class="game-info">
+        <p>Czas: <span id="timer">0 s</span></p>
+        <p>Punkty: <span id="score">0</span></p>
+    </div>
+
+    <div class="memory-grid" id="memoryGrid"></div>
+
+    <div id="gameOver" style="display:none;">
+        <h3>Koniec gry!</h3>
+        <p>Czas: <span id="finalTime"></span></p>
+        <p>Punkty: <span id="finalScore"></span></p>
+        <button onclick="startGame()">Zagraj ponownie</button>
+    </div>
+
+    <div id="scoreSection">
+        <div class="score-box score-left">
+            <h4 class="score-title">Ostatnie gry</h4>
+            <div id="scoreList"></div>
+        </div>
+        <div class="score-box">
+            <h4 class="score-title">Najlepsze wyniki</h4>
+            <div id="bestList"></div>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/memory.js') }}"></script>
+{% endblock %}
