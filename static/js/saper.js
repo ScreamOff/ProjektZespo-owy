@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const mediumButton = document.getElementById('mediumButton');
     const hardButton = document.getElementById('hardButton');
     const timerDisplay = document.getElementById('timer');
+    const explosionSound = new Audio('/static/audio/saper.mp3');
     const cells = [];
     let isGameOver = false;
     let width, height, bombCount;
@@ -123,6 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function gameOver() {
         isGameOver = true;
         clearInterval(timerInterval);
+        explosionSound.play();
         cells.forEach(cell => {
             if (cell.getAttribute('data-bomb') === 'true') {
                 cell.classList.add('bomb', 'revealed');
