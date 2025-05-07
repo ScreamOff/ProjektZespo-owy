@@ -14,6 +14,7 @@ from applications.converter.converter import converter_blueprint
 from applications.weather.weather import weather_blueprint
 from applications.password_generator.password_generator import password_generator_bp
 from applications.yahtzee.yahtzee import yahtzee_blueprint
+from applications.memory.memory import memory_blueprint
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
@@ -36,6 +37,7 @@ app.register_blueprint(converter_blueprint, url_prefix='/converter')
 app.register_blueprint(weather_blueprint, url_prefix='/weather')
 app.register_blueprint(password_generator_bp, url_prefix='/password_generator')
 app.register_blueprint(yahtzee_blueprint, url_prefix='/yahtzee')
+app.register_blueprint(memory_blueprint, url_prefix='/memory')
 
 @app.route('/')
 def index():
@@ -55,6 +57,7 @@ def index():
         {'name': 'Weather Stat.', 'icon': 'weather_icon.png', 'url': url_for('weather.weather_page')},
         {'name': 'Password Generator', 'icon': 'lock.png','url': url_for('password_generator.password_generator')},
         {'name': 'Yahtzee', 'icon': 'Yahtzee.png', 'url': url_for('yahtzee.yahtzee')},
+        {'name': 'Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)
