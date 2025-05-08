@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/refleks.css') }}">
+</head>
+
+<div class="refleks-container">
+    <h2>⚡ Test refleksu</h2>
+    <p>Kliknij pole poniżej, aby rozpocząć test. Kliknij ponownie, gdy zmieni kolor!</p>
+    <div id="testArea" class="waiting">Kliknij tutaj, aby rozpocząć</div>
+    <p id="resultText"></p>
+</div>
+
+<script src="{{ url_for('static', filename='js/refleks.js') }}"></script>
+{% endblock %}

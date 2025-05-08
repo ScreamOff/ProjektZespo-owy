@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for
 from applications.file_downloader.downloader import downloader_blueprint
 from applications.file_uploader.uploader import uploader_blueprint
 from applications.calculator.calculator import calculator_blueprint
+from applications.refleks.refleks import refleks_blueprint
 from applications.video_player.player import player_blueprint
 from applications.notes.notes import notes_blueprint
 from applications.planner.planner import planner_blueprint
@@ -38,6 +39,7 @@ app.register_blueprint(weather_blueprint, url_prefix='/weather')
 app.register_blueprint(password_generator_bp, url_prefix='/password_generator')
 app.register_blueprint(yahtzee_blueprint, url_prefix='/yahtzee')
 app.register_blueprint(memory_blueprint, url_prefix='/memory')
+app.register_blueprint(refleks_blueprint, url_prefix='/refleks')
 
 @app.route('/')
 def index():
@@ -58,6 +60,7 @@ def index():
         {'name': 'Password Generator', 'icon': 'lock.png','url': url_for('password_generator.password_generator')},
         {'name': 'Yahtzee', 'icon': 'Yahtzee.png', 'url': url_for('yahtzee.yahtzee')},
         {'name': 'Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
+        {'name': 'Refleks', 'icon': 'saper_icon.png', 'url': url_for('refleks.refleks_page')},
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)
