@@ -60,7 +60,7 @@ def index():
         {'name': 'Password Generator', 'icon': 'lock.png','url': url_for('password_generator.password_generator')},
         {'name': 'Yahtzee', 'icon': 'Yahtzee.png', 'url': url_for('yahtzee.yahtzee')},
         {'name': 'Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
-        {'name': 'Refleks', 'icon': 'saper_icon.png', 'url': url_for('refleks.refleks_page')},
+        {'name': 'Refleks', 'icon': 'refleks.png', 'url': url_for('refleks.refleks_page')},
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)
