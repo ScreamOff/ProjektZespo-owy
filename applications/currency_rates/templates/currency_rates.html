@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/currency_rates.css') }}">
+    <script src="{{ url_for('static', filename='js/currency_rates.js') }}" defer></script>
+</head>
+
+<div class="currency-converter">
+    <h2>Konwerter walut</h2>
+    <div class="converter-panel">
+        <input type="number" id="amount" placeholder="Kwota" />
+        <select id="from-currency"></select>
+        <span class="equals">=</span>
+        <input type="text" id="converted-amount" placeholder="Wynik" readonly />
+        <select id="to-currency"></select>
+    </div>
+</div>
+
+<div class="currency-container">
+    <h1>Kursy walut NBP</h1>
+    <p>Data obowiązywania: <span id="effective-date">Ładowanie...</span></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Waluta</th>
+                <th>Kod</th>
+                <th>Kurs średni</th>
+            </tr>
+        </thead>
+        <tbody id="rates-table">
+            <!-- Wiersze zostaną dodane przez JS -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}

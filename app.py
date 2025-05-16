@@ -16,6 +16,9 @@ from applications.weather.weather import weather_blueprint
 from applications.password_generator.password_generator import password_generator_bp
 from applications.yahtzee.yahtzee import yahtzee_blueprint
 from applications.memory.memory import memory_blueprint
+from applications.currency_rates.currency_rates import currency_rates_bp
+
+
 app = Flask(__name__ )
 app.secret_key = 'your_secret_key'
 app.config['MAX_CONTENT_LENGTH'] = 1 * 1024 * 1024 * 1024
@@ -41,6 +44,7 @@ app.register_blueprint(yahtzee_blueprint, url_prefix='/yahtzee')
 app.register_blueprint(memory_blueprint, url_prefix='/memory')
 app.register_blueprint(refleks_blueprint, url_prefix='/refleks')
 
+app.register_blueprint(currency_rates_bp, url_prefix='/currency')
 @app.route('/')
 def index():
     applications = [
@@ -61,6 +65,8 @@ def index():
         {'name': 'Yahtzee', 'icon': 'Yahtzee.png', 'url': url_for('yahtzee.yahtzee')},
         {'name': 'Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
         {'name': 'Refleks', 'icon': 'refleks.png', 'url': url_for('refleks.refleks_page')},
+        {'name': 'Currency Rates', 'icon': 'currency_icon.png','url': url_for('currency_rates.currency_rates')},
+
         # Możemy tutaj dodawać kolejne aplikacje
     ]
     return render_template('index.html', applications=applications)
