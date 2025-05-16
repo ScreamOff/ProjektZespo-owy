@@ -2,14 +2,14 @@
 
 {% block content %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/download.css') }}">
-    <h2>Available Downloads</h2>
+    <h2>Pliki do Pobrania</h2>
     <div class="container">
     <ul>
         {% for file in files %}
             <li class="download-item">
                 <img class="download-icon" src="{{ url_for('static', filename='icons/' + file.icon) }}" alt="icon">
                 <span class="download-info">{{ file.name }}</span>
-                <a class="download-button" href="{{ url_for('downloader.download_file', filename=file.name) }}">Download</a>
+                <a class="download-button" href="{{ url_for('downloader.download_file', filename=file.name) }}">Pobierz</a>
             </li>
         {% endfor %}
     </ul>
