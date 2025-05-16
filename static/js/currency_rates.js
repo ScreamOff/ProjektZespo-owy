@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         const result = (amount * currencyRates[from]) / currencyRates[to];
-        convertedAmount.value = result.toFixed(2) + ' zł';
+        convertedAmount.value = result.toFixed(2) + ' ' + to.toLowerCase();
     }
 
     // Nasłuchiwanie zmian
