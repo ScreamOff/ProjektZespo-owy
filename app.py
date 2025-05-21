@@ -69,7 +69,7 @@ def index():
         {'name': 'Gra Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
         {'name': 'Gra Refleks', 'icon': 'refleks.png', 'url': url_for('refleks.refleks_page')},
         {'name': 'Kursy Walut', 'icon': 'currency_icon.png','url': url_for('currency_rates.currency_rates')},
-        {'name': 'Wheel', 'icon': 'wheel.png', 'url': url_for('wheel.wheel_page')},
+        {'name': 'Koło losu', 'icon': 'wheel.png', 'url': url_for('wheel.wheel_page')},
 
         # Możemy tutaj dodawać kolejne aplikacje
     ]
