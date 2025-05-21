@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/wheel.css') }}">
+</head>
+
+<div class="wheel-container">
+    <h2>Koło Fortuny</h2>
+
+    <div class="input-section">
+        <label for="optionsInput">Wpisz opcje do losowania (oddzielone przecinkami):</label>
+        <textarea id="optionsInput" placeholder="np. pizza, kebab, makaron"></textarea>
+        <button onclick="createWheel()">Stwórz koło</button>
+    </div>
+
+    <div class="wheel-wrapper">
+        <canvas id="wheelCanvas" width="500" height="500"></canvas>
+        <button id="spinButton" onclick="spinWheel()">Zakręć!</button>
+    </div>
+
+    <div id="resultDisplay"></div>
+    <div id="historyList" class="history-section"></div>
+</div>
+
+<script src="{{ url_for('static', filename='js/wheel.js') }}"></script>
+{% endblock %}

@@ -17,6 +17,7 @@ from applications.password_generator.password_generator import password_generato
 from applications.yahtzee.yahtzee import yahtzee_blueprint
 from applications.memory.memory import memory_blueprint
 from applications.currency_rates.currency_rates import currency_rates_bp
+from applications.wheel.wheel import wheel_blueprint
 
 
 app = Flask(__name__ )
@@ -45,6 +46,8 @@ app.register_blueprint(memory_blueprint, url_prefix='/memory')
 app.register_blueprint(refleks_blueprint, url_prefix='/refleks')
 
 app.register_blueprint(currency_rates_bp, url_prefix='/currency')
+app.register_blueprint(wheel_blueprint, url_prefix="/wheel")
+
 @app.route('/')
 def index():
     applications = [
@@ -66,6 +69,7 @@ def index():
         {'name': 'Gra Memory', 'icon': 'memory_icon.png', 'url': url_for('memory.memory_page')},
         {'name': 'Gra Refleks', 'icon': 'refleks.png', 'url': url_for('refleks.refleks_page')},
         {'name': 'Kursy Walut', 'icon': 'currency_icon.png','url': url_for('currency_rates.currency_rates')},
+        {'name': 'Wheel', 'icon': 'wheel.png', 'url': url_for('wheel.wheel_page')},
 
         # Możemy tutaj dodawać kolejne aplikacje
     ]

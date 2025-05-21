@@ -150,21 +150,9 @@
     "timestamp": "2025-05-08T01:42:03.372610"
   },
   {
-    "time": 18,
-    "score": 4,
+    "time": 8,
+    "score": 6,
     "difficulty": "4",
-    "timestamp": "2025-05-08T09:43:05.950242"
-  },
-  {
-    "time": 23,
-    "score": 8,
-    "difficulty": "6",
-    "timestamp": "2025-05-08T09:43:34.857162"
-  },
-  {
-    "time": 11,
-    "score": 5,
-    "difficulty": "4",
-    "timestamp": "2025-05-08T14:12:39.710198"
+    "timestamp": "2025-05-21T23:10:20.242936"
   }
 ]
