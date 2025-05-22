@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const hardButton = document.getElementById('hardButton');
     const timerDisplay = document.getElementById('timer');
     const explosionSound = new Audio('/static/audio/saper.mp3');
+    const winSound = new Audio('/static/audio/win.mp3');
     const cells = [];
     let isGameOver = false;
     let width, height, bombCount;
@@ -141,7 +142,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (revealed === totalSafe) {
             clearInterval(timerInterval);
             const timeTaken = Math.floor((Date.now() - startTime) / 1000);
+            winSound.play();
             alert("🎉 You won in " + timeTaken + " seconds!");
+
         }
     }
 
