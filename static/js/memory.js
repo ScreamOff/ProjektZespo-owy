@@ -5,6 +5,12 @@ let score = 0;
 let timer = 0;
 let intervalId = null;
 
+const tickSound = new Audio("/static/audio/tick.mp3");
+const winSound = new Audio("/static/audio/win.mp3");
+tickSound.volume = 0.3;
+winSound.volume = 0.5;
+
+
 const grid = document.getElementById("memoryGrid");
 const timerDisplay = document.getElementById("timer");
 const scoreDisplay = document.getElementById("score");
@@ -89,6 +95,8 @@ function onCardClick(e) {
     if (lockBoard || card.classList.contains("matched") || card === firstCard) return;
 
     card.classList.add("flipped");
+    tickSound.currentTime = 0;
+    tickSound.play();
 
     if (!firstCard) {
         firstCard = card;
@@ -101,12 +109,12 @@ function onCardClick(e) {
     if (isMatch) {
         firstCard.classList.add("matched");
         card.classList.add("matched");
-        score+=2;
+        score += 2;
         scoreDisplay.textContent = score;
         resetTurn();
         checkWin();
     } else {
-        score-=1;
+        score -= 1;
         scoreDisplay.textContent = score;
         setTimeout(() => {
             firstCard.classList.remove("flipped");
@@ -116,6 +124,7 @@ function onCardClick(e) {
     }
 }
 
+
 function resetTurn() {
     [firstCard, lockBoard] = [null, false];
 }
@@ -123,6 +132,8 @@ function resetTurn() {
 function checkWin() {
     if (cards.every(card => card.classList.contains("matched"))) {
         stopTimer();
+        winSound.play();
+
         finalTime.textContent = `${timer} s`;
         finalScore.textContent = score;
         gameOverScreen.style.display = "block";
@@ -132,6 +143,7 @@ function checkWin() {
         });
     }
 }
+
 
 
 async function sendScore() {
