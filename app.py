@@ -18,6 +18,9 @@ from applications.yahtzee.yahtzee import yahtzee_blueprint
 from applications.memory.memory import memory_blueprint
 from applications.currency_rates.currency_rates import currency_rates_bp
 from applications.wheel.wheel import wheel_blueprint
+from applications.dice_simulator.dice_simulator import dice_simulator_bp
+
+
 
 
 app = Flask(__name__ )
@@ -47,6 +50,7 @@ app.register_blueprint(refleks_blueprint, url_prefix='/refleks')
 
 app.register_blueprint(currency_rates_bp, url_prefix='/currency')
 app.register_blueprint(wheel_blueprint, url_prefix="/wheel")
+app.register_blueprint(dice_simulator_bp, url_prefix='/dice')
 
 @app.route('/')
 def index():
@@ -70,6 +74,7 @@ def index():
         {'name': 'Gra Refleks', 'icon': 'refleks.png', 'url': url_for('refleks.refleks_page')},
         {'name': 'Kursy Walut', 'icon': 'currency_icon.png','url': url_for('currency_rates.currency_rates')},
         {'name': 'Koło losu', 'icon': 'wheel.png', 'url': url_for('wheel.wheel_page')},
+        {'name': 'Rzut Kostką', 'icon': 'dice_icon.png', 'url': url_for('dice_simulator.dice_simulator')},
 
         # Możemy tutaj dodawać kolejne aplikacje
     ]

@@ -27,8 +27,7 @@ body {
     padding: 20px;
     background-color: var(--container-background);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
+    border: 1px solid var(--highlight-color);
 }
 
 .create-note,
@@ -40,6 +39,7 @@ body {
     border-radius: 8px;
     box-sizing: border-box; /* Wliczanie paddingu w szerokość */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--highlight-color);
     margin-bottom: 20px; /* Odstęp między kontenerami */
 }
 

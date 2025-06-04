@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dice_simulator.css') }}">
+    <audio id="dice-sound" src="{{ url_for('static', filename='audio/dice-roll.mp3') }}"></audio>
+    <audio id="coin-sound" src="{{ url_for('static', filename='audio/coin-roll.mp3') }}"></audio>
+
+
+<div class="container">
+    <h1>Symulator rzutu kością</h1>
+
+    <div class="controls">
+        <label for="dice-type">Rodzaj kości:</label>
+        <select id="dice-type">
+            <option value="coin">Moneta (Orzeł/Reszka)</option>
+            <option value="4">D4</option>
+            <option value="6" selected>D6</option>
+            <option value="8">D8</option>
+            <option value="10">D10</option>
+            <option value="12">D12</option>
+            <option value="20">D20</option>
+        </select>
+
+        <label for="dice-count">Liczba kości (1–6):</label>
+        <input type="number" id="dice-count" min="1" max="6" value="1">
+
+        <button id="roll-btn">Rzuć kośćmi</button>
+    </div>
+
+
+</div>
+    <div class="container">
+    <div class="results-section">
+        <h2>Wyniki:</h2>
+        <div id="dice-results" class="dice-results"></div>
+    </div>
+
+    <div class="history-section">
+        <h3>Historia rzutów:</h3>
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Rodzaj kości</th>
+                    <th>Liczba</th>
+                    <th>Wyniki</th>
+                </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+        </table>
+    </div>
+    </div>
+
+<script src="{{ url_for('static', filename='js/dice_simulator.js') }}"></script>
+{% endblock %}
