@@ -1,0 +1,109 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(32, 20px);
+    grid-template-rows: repeat(32, 20px);
+    gap: 1px;
+    margin: 20px auto;
+    max-width: fit-content;
+}
+
+.grid-size-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+#pixelGrid {
+    display: grid;
+    gap: 1px;
+    width: 640px;
+    height: 640px;
+    overflow: auto;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+    background-color: #eee;
+}
+
+
+.palette {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px 0;
+    gap: 8px;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.color-option:hover {
+    border-color: #000;
+}
+
+#customColorPicker {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.clear-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #ff5555;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.clear-button:hover {
+    background-color: #cc0000;
+}
+
+.save-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.save-button:hover {
+    background-color: #388E3C;
+}
+
+.preview {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#previewCanvas {
+    border: 1px solid #ccc;
+    image-rendering: pixelated;
+    width: 160px;  /* skalowana szerokość podglądu */
+    height: 160px; /* dopasowana wysokość */
+}
+
+

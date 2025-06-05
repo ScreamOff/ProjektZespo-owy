@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+</head>
+
+<h2></h2>
+
+<div class="palette">
+    <!-- Predefiniowane kolory -->
+    <button class="color-option" data-color="#000000" style="background-color: #000000;"></button>
+    <button class="color-option" data-color="#FF0000" style="background-color: #FF0000;"></button>
+    <button class="color-option" data-color="#00FF00" style="background-color: #00FF00;"></button>
+    <button class="color-option" data-color="#0000FF" style="background-color: #0000FF;"></button>
+    <button class="color-option" data-color="#FFFF00" style="background-color: #FFFF00;"></button>
+    <button class="color-option" data-color="#FF00FF" style="background-color: #FF00FF;"></button>
+    <button class="color-option" data-color="#00FFFF" style="background-color: #00FFFF;"></button>
+
+    <!-- Własny wybór koloru -->
+    <input type="color" id="customColorPicker" value="#000000">
+</div>
+
+
+
+<form id="gridSizeForm" class="grid-size-form">
+        <input type="number" id="gridWidth" placeholder="Szerokość" min="1" max="200" value="32">
+        <input type="number" id="gridHeight" placeholder="Wysokość" min="1" max="200" value="32">
+    <button type="submit">Utwórz nową siatkę</button>
+</form>
+
+
+
+<div class="grid" id="pixelGrid"></div>
+<div class="preview">
+    <canvas id="previewCanvas"></canvas>
+    </div>
+    <button id="clearGridButton" class="clear-button">Wyczyść siatkę</button>
+    <button id="saveButton" class="save-button">Zapisz jako PNG</button>
+
+<script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+{% endblock %}

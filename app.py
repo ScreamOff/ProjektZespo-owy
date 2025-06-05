@@ -1,4 +1,6 @@
 from flask import Flask, render_template, url_for
+
+from applications.editor.editor import editor_blueprint
 from applications.file_downloader.downloader import downloader_blueprint
 from applications.file_uploader.uploader import uploader_blueprint
 from applications.calculator.calculator import calculator_blueprint
@@ -19,6 +21,7 @@ from applications.memory.memory import memory_blueprint
 from applications.currency_rates.currency_rates import currency_rates_bp
 from applications.wheel.wheel import wheel_blueprint
 from applications.dice_simulator.dice_simulator import dice_simulator_bp
+from applications.editor.editor import editor_blueprint
 
 
 
@@ -51,6 +54,7 @@ app.register_blueprint(refleks_blueprint, url_prefix='/refleks')
 app.register_blueprint(currency_rates_bp, url_prefix='/currency')
 app.register_blueprint(wheel_blueprint, url_prefix="/wheel")
 app.register_blueprint(dice_simulator_bp, url_prefix='/dice')
+app.register_blueprint(editor_blueprint, url_prefix='/editor')
 
 @app.route('/')
 def index():
@@ -75,6 +79,7 @@ def index():
         {'name': 'Kursy Walut', 'icon': 'currency_icon.png','url': url_for('currency_rates.currency_rates')},
         {'name': 'Koło losu', 'icon': 'wheel.png', 'url': url_for('wheel.wheel_page')},
         {'name': 'Rzut Kostką', 'icon': 'dice_icon.png', 'url': url_for('dice_simulator.dice_simulator')},
+        {'name': 'Edytor Pixel-Art','icon':'editor.png','url': url_for('editor.pixel_editor') },
 
         # Możemy tutaj dodawać kolejne aplikacje
     ]
